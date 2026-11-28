@@ -1,0 +1,490 @@
+{
+  "checkedAt": "2026-11-28T17:34:45.9249963+00:00",
+  "sourceCommit": "4ac45cda5368a9a3be2224300d3b6e5060edce8a",
+  "sourceDirectory": "research/erh-cayley",
+  "manifestSHA256": "86fda456d1f9f8e9ba32153af86487bf77c8704b6e09ee01e072596da297ef62",
+  "lean": "Lean (version 4.33.1, x86_64-w64-windows-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "formalConjectures": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "complete": true,
+  "compiled": 51,
+  "previouslyCompiled": 48,
+  "resumedModules": [
+    "CayleyCritical",
+    "CayleyCertificates",
+    "CayleyCost"
+  ],
+  "importedTogether": 51,
+  "auditedDeclarations": 79,
+  "axiomsReportedForEveryAuditedDeclaration": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "files": [
+    {
+      "module": "OMAReductions.R_ERH_extended_riemann_hypothesis_R3",
+      "path": "OMAReductions/R_ERH_extended_riemann_hypothesis_R3.lean",
+      "sourceSHA256": "0682339db692de5f20cbc6e810adb86c38b67a00f8da7f858d95eb445d9ba278",
+      "oleanSHA256": "f681ddb5cc1b0b965bb6f75f55038a27e009bf0991e3f69c0c4e553170207dff",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "OMAReductions.R_ERH_extended_riemann_hypothesis_R3_H2_R1",
+      "path": "OMAReductions/R_ERH_extended_riemann_hypothesis_R3_H2_R1.lean",
+      "sourceSHA256": "d98bf330b9d39b975da09b1d5b437320b1ab6647b888f327a0704603d2e16cae",
+      "oleanSHA256": "ab5c2f7c7464f96b88971a2323a763f96be7bfbaa92c6e6feb6d4734e78e4be3",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "OMAReductions.R_ERH_extended_riemann_hypothesis_R3_H2_R1_H2_R1",
+      "path": "OMAReductions/R_ERH_extended_riemann_hypothesis_R3_H2_R1_H2_R1.lean",
+      "sourceSHA256": "433adfb343fffced837c0ca0beb3d8c84a2a06d6079f29a3e25a8d07942a9cb7",
+      "oleanSHA256": "0e8d5b2dfc53f7387faef0151066444f98498e1aaf8e65e615ff4108d9708add",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "CayleyBounds",
+      "path": "CayleyBounds.lean",
+      "sourceSHA256": "d21a99a6b63f666df44696a63b176be7efe4fa595775459eeb85c67dedf22b1c",
+      "oleanSHA256": "446ffd91338dd8186cae2d0d326111f313dde8668111036bc1577b1695d3e7c4",
+      "compileEvidence": "serial compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyBounds.point_positive",
+        "OMA.CayleyBounds.left_height",
+        "OMA.CayleyBounds.initial_radius",
+        "OMA.CayleyBounds.bound_of_height"
+      ]
+    },
+    {
+      "module": "ThetaMoment",
+      "path": "ThetaMoment.lean",
+      "sourceSHA256": "e54c2c2c906a9e991e4c654c2cac4dfd058ec126eda4217edd4a3b57b3442a41",
+      "oleanSHA256": "5b4d3dc9952a47e3bbb03bf9fbe6bc42eb998b5d57813ece70690b425072d28f",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "ReciprocalRadius",
+      "path": "ReciprocalRadius.lean",
+      "sourceSHA256": "ab50954c74cf5ce498515a154de4b11baceb9e7573129ee8ac3cd98d29c564e0",
+      "oleanSHA256": "399e459b96dcacfa5a33430ec158932e2bc794a59a525e0e206b9a77b994367f",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "DedekindThetaAudit",
+      "path": "DedekindThetaAudit.lean",
+      "sourceSHA256": "2f1813a2d723279dfc8493239893aac2ff49b5eeb21ed43c225433025039ef31",
+      "oleanSHA256": "4bfdd35d83afa4085b3563a3d21214ef4828d6d956239dae7ba700a3376f0059",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "RationalRadius",
+      "path": "RationalRadius.lean",
+      "sourceSHA256": "ab18b19deaaeefc40ee140a90db6cf3447d8f570a67ad8deedddb28bf8c84a7b",
+      "oleanSHA256": "6ddfb43e92ecc0e0952f03d622a547450361d39de15b6a8ca2bb6c882cf9c84e",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "LowHeight",
+      "path": "LowHeight.lean",
+      "sourceSHA256": "5907447d60c7feb08317a2f3b971d8afacfbf1e88028ee4b2915298da8cc5162",
+      "oleanSHA256": "9d355e5d10d369951f5f814cac4c94de71a3ce181ef1c7697c89224551681a1f",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "EulerBoundary",
+      "path": "EulerBoundary.lean",
+      "sourceSHA256": "3a935f9dd88798bbb27fe75f4a597af62e86ef9a2dd2e84e7bbf62021bf74ee3",
+      "oleanSHA256": "ff83b1ee028a369e4cd70a121f1d9089d927c517ac319abd5b9fc0d1cc1cd993",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "ThetaContinuation",
+      "path": "ThetaContinuation.lean",
+      "sourceSHA256": "c08d9181b7418384cff32901d62348fcabc1f20ddb8dc510fdb7f779f94b7932",
+      "oleanSHA256": "cb143d437b27389894bb777aa435fbd7036629541a1bd56bb909e4aca4b41c81",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "AllFieldRadius",
+      "path": "AllFieldRadius.lean",
+      "sourceSHA256": "034323faeae08d62fc8c6f952d9eaeae0c8c27e28a62cc9c54666186fd62eca7",
+      "oleanSHA256": "579366497c9fa64b3d79c98355eda8b6636949d4624415e916df3b60cfd6cbe4",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "ExactRadius",
+      "path": "ExactRadius.lean",
+      "sourceSHA256": "bce785daf1af936a89b610e88c327c53088507cf94660e2d67d9e0be2989f93e",
+      "oleanSHA256": "17c34651db701f7d99486967c92aea77537fd7d194d6822ccdbc39cad9996b92",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "QuadraticMoment",
+      "path": "QuadraticMoment.lean",
+      "sourceSHA256": "38c0ca5f0309064f13f568c91dd4041258453d1a647b8bdd28f9e6afd831927c",
+      "oleanSHA256": "4c691de978d8f0e1319e1bb31213e98fc91fe3d0d68d5b315bf67299008fb54f",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "HeatDecay",
+      "path": "HeatDecay.lean",
+      "sourceSHA256": "1fffe56f6964c83692f22a604fe9a7dc8e9b103bf7b15aeb342e8c560842adb3",
+      "oleanSHA256": "0a58604152aa0e2aca0676939238bdafcd33e42bfa3d339a2e6fc212afe12cb5",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "SmallEndpoint",
+      "path": "SmallEndpoint.lean",
+      "sourceSHA256": "7b5d5f52abdd2b5fd58e85fdceca4035aff4b78b5595dc14ab7c56c718eca170",
+      "oleanSHA256": "757c58e220c0215c04c7a58db6dadbb80aa8fa32bdddccbf177a33d92f86b6bd",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "DiskGeometry",
+      "path": "DiskGeometry.lean",
+      "sourceSHA256": "fcea5415f5757099e9ad24c38b0b82d8a52bf402111c01ffada242a07a700700",
+      "oleanSHA256": "d9d890c6c881b5cdbcdebcc563a6732f9272e537d4475467e34a73e3a7dd8281",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "SelfDualHeat",
+      "path": "SelfDualHeat.lean",
+      "sourceSHA256": "56649d036949e99b27a170a050c600df2ca846baf303204c3af21b12d973637e",
+      "oleanSHA256": "d5781284403f382b4defb28a041a5a59c008418ed828d0f55379c899773b0eda",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "StripHeat",
+      "path": "StripHeat.lean",
+      "sourceSHA256": "aec433c05ba6627638d6f2eb20006f88eeb4a2dbd176957cf0d1224fa8051ab4",
+      "oleanSHA256": "cc27207251a17d60d872f60d98d22fa5ffb569b8f75276c0d338ffea9d27872d",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "DiscriminantRanges",
+      "path": "DiscriminantRanges.lean",
+      "sourceSHA256": "874100a8f8f9e683b44270f27a364ba5484d09120ffdf7f5e9d094b3ea4d8e10",
+      "oleanSHA256": "64d54cda89f39bed1563ab282ef0465a5d1a98c8fe18cccd4f8f895b4c43c6aa",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "CyclotomicDisks",
+      "path": "CyclotomicDisks.lean",
+      "sourceSHA256": "5fb32af86849bcac35697fca7320e04d17db7c3a4ae44c459966c82cb2f4cd6a",
+      "oleanSHA256": "4209a1d8c7fa0392dc51c410e3a99e7291026e9d750a2a023aafdc8cb45b637f",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "CentralRadius",
+      "path": "CentralRadius.lean",
+      "sourceSHA256": "a0016a81912da507262ccf81f57c917da13f387251ccab29f3de5369636fa267",
+      "oleanSHA256": "b7e6f012dd9a92f90f060c859013f0dda224935d825f37e933b7773198f36d60",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "SharpStrip",
+      "path": "SharpStrip.lean",
+      "sourceSHA256": "b7e3dd1e0ee5f0b9efe47ddba8a0f87dfcc1898ebf9f33fbdef7a63799ac1c35",
+      "oleanSHA256": "93a13125fd7c2bcc0f101f326a1646343a957b55289c7a6349e9b041bf302525",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "RadialProfile",
+      "path": "RadialProfile.lean",
+      "sourceSHA256": "99dd2f712462427228c7526ea44a8b1714ba6c4cb760ffc7704e2e8c7afbfbdc",
+      "oleanSHA256": "069fce5d7240fb72c35848d6fe82a7f34e2424041b4bcbb2460d3f2ced7a2e38",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "GeneralHeat",
+      "path": "GeneralHeat.lean",
+      "sourceSHA256": "886877095800b7b8b365b732e5a4b2812eb6ccf1a6df79fb51546ba929dd0447",
+      "oleanSHA256": "5046ce969fefe088b88723e74813ae3ec22109ec95525a3449b495d6389206d8",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "GeneralSlope",
+      "path": "GeneralSlope.lean",
+      "sourceSHA256": "ffbbbd2c4b8475e4677d63088dd31a5e4f080761a44787a0ed7f7e380574e299",
+      "oleanSHA256": "7ca6bec272e765c07c38af612d24068b14fa4af311467e35f16b2d2fc7dccc9c",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "GeneralStrip",
+      "path": "GeneralStrip.lean",
+      "sourceSHA256": "be0443c4c2b15979e45c8b2c79be4e5c1a984cd0a03e5d101a5b743a79be6450",
+      "oleanSHA256": "312b5db081b663d8740101478d57e95efb0e04163aa42b692010c5632d7b8f3f",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "QuarticDisk",
+      "path": "QuarticDisk.lean",
+      "sourceSHA256": "247645aaeee55caf1002875b3ad1b56ccbb7d2e9050971bc86a0ce1c22dceeae",
+      "oleanSHA256": "548eeeaecf756ed261e75354b694ef54f01d07eadfaa93af15544430fa51de9b",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "ZeroAtOrigin",
+      "path": "ZeroAtOrigin.lean",
+      "sourceSHA256": "1681cf63507aedd981b8c573d7a15d7f711c21c0e5f3dfbd711ce47b88b4e479",
+      "oleanSHA256": "810e4c11aa8a7344c5d1cefcfd18939e1cce8c4845b0a0f4be91f8690e986320",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "RealFifth",
+      "path": "RealFifth.lean",
+      "sourceSHA256": "0275e5d2e7a7b11650221c902a0334280e9098f16f46160feda802b4f5e41a1b",
+      "oleanSHA256": "f6e0e4db23666b13f2fb360aeb546ff461c8cff9349e2fea187822c7baaf3508",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "CubicDisk",
+      "path": "CubicDisk.lean",
+      "sourceSHA256": "42de67092d02539d177da2154b077602872a9da8d468742e3a0f015fc848a2c1",
+      "oleanSHA256": "e1cf452f6e4ae9fe4744a1be1a5bf36df6490b71e2fccd9a8096f05797a4d72b",
+      "compileEvidence": "serial compiler record"
+    },
+    {
+      "module": "CayleyFields",
+      "path": "CayleyFields.lean",
+      "sourceSHA256": "626533aa7f6efe88ae812be24066dfe605c6be18461d91287e1ad85107c831ab",
+      "oleanSHA256": "3c73d10c0ebe72a4e51e137807acb438bcab093627e1ba25c0e7bc39b126376b",
+      "compileEvidence": "serial compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyFields.boundary",
+        "OMA.CayleyFields.all_fields",
+        "OMA.CayleyFields.degree_one",
+        "OMA.CayleyFields.gaussian",
+        "OMA.CayleyFields.small_cubic",
+        "OMA.CayleyFields.fifth"
+      ]
+    },
+    {
+      "module": "CayleyRecurrence",
+      "path": "CayleyRecurrence.lean",
+      "sourceSHA256": "09ff166b5367e65908a3a3707c7b976fe4064e2750f38b07b9403c88f992a833",
+      "oleanSHA256": "8779bee742d9991ee9068179d917b4fe4eafab103eed2d12697a3f3c28918633",
+      "compileEvidence": "serial compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyRecurrence.base_derivatives",
+        "OMA.CayleyRecurrence.product_coeff",
+        "OMA.CayleyRecurrence.reciprocal_system",
+        "OMA.CayleyRecurrence.arithmetic_recurrence",
+        "OMA.CayleyRecurrence.weighted_inverse_bound",
+        "OMA.CayleyRecurrence.bound_of_prefix"
+      ]
+    },
+    {
+      "module": "CayleyObstruction",
+      "path": "CayleyObstruction.lean",
+      "sourceSHA256": "a7f7784884d639f9ac20fc0eddfc5707e0e9018ee6c7fa9523445d60eb27433d",
+      "oleanSHA256": "e5d06c39622dba451171351ba2383754537e019f63298a20080fa10270ca3d02",
+      "compileEvidence": "serial compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyObstruction.forward_sum",
+        "OMA.CayleyObstruction.value_bound",
+        "OMA.CayleyObstruction.prefix_violation"
+      ]
+    },
+    {
+      "module": "CayleyReturn",
+      "path": "CayleyReturn.lean",
+      "sourceSHA256": "5c128385b702d8359aa6ab88d01f3f62504a2b5e370c06376d01305aa5c4fdbe",
+      "oleanSHA256": "9e61b7f1600225251eecb35258091673a3007b04b5bb0e23c61344b0d6ee5c00",
+      "compileEvidence": "serial compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyReturn.common_heights",
+        "OMA.CayleyReturn.real_limit",
+        "OMA.CayleyReturn.large_real"
+      ]
+    },
+    {
+      "module": "CayleyDifference",
+      "path": "CayleyDifference.lean",
+      "sourceSHA256": "3dc5adbcee31357bea9988b9959330fb9a7e367510db6a0ed048a36b773c74b5",
+      "oleanSHA256": "8c525f8c3edd2842ec8a2aa271b1c4a0389a05dbb27a5859af9648b251483a99",
+      "compileEvidence": "module compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyDifference.forward_coeff",
+        "OMA.CayleyDifference.first_differences",
+        "OMA.CayleyDifference.inverse_differences",
+        "OMA.CayleyDifference.inverse_partial_sums",
+        "OMA.CayleyDifference.bound_iff",
+        "OMA.CayleyDifference.normalized_sum",
+        "OMA.CayleyDifference.bound_of_difference_prefix"
+      ]
+    },
+    {
+      "module": "CayleyBoundaryValues",
+      "path": "CayleyBoundaryValues.lean",
+      "sourceSHA256": "9ef33344da48a25d77a0d91c594f2d67bdbf496589d55216f458e8abd78513d1",
+      "oleanSHA256": "e45cf71517b5cb65b67688b51edeb4a1a1ccfe71e206053479f7e0462a762835",
+      "compileEvidence": "module compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyBoundaryValues.normalized_at",
+        "OMA.CayleyBoundaryValues.radial_limit",
+        "OMA.CayleyBoundaryValues.vertical_limits",
+        "OMA.CayleyBoundaryValues.unbounded_at_one",
+        "OMA.CayleyBoundaryValues.absolute_mass",
+        "OMA.CayleyBoundaryValues.difference_prefix_violation",
+        "OMA.CayleyBoundaryValues.not_absolutely_summable"
+      ]
+    },
+    {
+      "module": "FoldedPhase",
+      "path": "FoldedPhase.lean",
+      "sourceSHA256": "5268440fbd72fc5fb9c8977ab49b10c08313c6711eba8f8f8a13b70b1a4c2d3d",
+      "oleanSHA256": "40aa1016d58b6efd531da299a768860d773f81a7852df31a1beaea8e6774e979",
+      "compileEvidence": "module compiler record"
+    },
+    {
+      "module": "VerticalDecay",
+      "path": "VerticalDecay.lean",
+      "sourceSHA256": "6aa764a3427ce2dc47a92920cef0b594c24d053e167f32b0aa7333cb3656d469",
+      "oleanSHA256": "2d0332125756c0d8ce49dadd1fba9b772685d0b2950b5c8d3d6a99484bc07df7",
+      "compileEvidence": "module compiler record"
+    },
+    {
+      "module": "CompletedNumerator",
+      "path": "CompletedNumerator.lean",
+      "sourceSHA256": "a24bc6724cb42c4a0f127b00a15078def265b020086b9d4f9175b9b206496708",
+      "oleanSHA256": "18857cdc50e50809ca10093c05b043d8a7d826ddd3ac5e6e57468b3bd8cd9e75",
+      "compileEvidence": "module compiler record"
+    },
+    {
+      "module": "StripDecay",
+      "path": "StripDecay.lean",
+      "sourceSHA256": "67840b287e7761682a3a5a23525031b9109b549d5477171cd2b9b122942c57a9",
+      "oleanSHA256": "c098488603c028cab698d17789f7946e978001201844318df371fad14ecab957",
+      "compileEvidence": "module compiler record"
+    },
+    {
+      "module": "MellinAsymptotic",
+      "path": "MellinAsymptotic.lean",
+      "sourceSHA256": "9d0b618d8ae9fedb51bce3edec267740d341ca4c496f6f55c6d58ecc3e780f07",
+      "oleanSHA256": "fa2125094560b7921dda7ada248429c5cda6212a29af6d667cbfac2528aeda26",
+      "compileEvidence": "module compiler record"
+    },
+    {
+      "module": "ArchGrowth",
+      "path": "ArchGrowth.lean",
+      "sourceSHA256": "45454c048ea7fa1b76ef961d0184801112300ee7d9bb94566172479d56ea222c",
+      "oleanSHA256": "6c3a756daa9e8fa976bbf8da0b6dab4af8f800af4fa6a90a96f404d95cd7e1ac",
+      "compileEvidence": "module compiler record"
+    },
+    {
+      "module": "ZetaGrowth",
+      "path": "ZetaGrowth.lean",
+      "sourceSHA256": "b1a0e6882a60bb94b42f9eb165011b02b1bd25fe509ae1710debb6741b2cd27b",
+      "oleanSHA256": "3ecad77e2084ca8545aeb09701d5c60d46ac4c4f4ead7d1fb9f1c81c02eecd8f",
+      "compileEvidence": "module compiler record"
+    },
+    {
+      "module": "CayleySmoothing",
+      "path": "CayleySmoothing.lean",
+      "sourceSHA256": "5b608ce72834466b4bbaed6e73867283e6a8f8a4026e223be03d9a16bc17a2c8",
+      "oleanSHA256": "d71d300adc1afd4556a36e888ae7f7fb7bad83d867fb34e554dada802b80e586",
+      "compileEvidence": "module compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleySmoothing.point_right",
+        "OMA.CayleySmoothing.local_geometry",
+        "OMA.CayleySmoothing.second_bound",
+        "OMA.CayleySmoothing.coefficient_decay",
+        "OMA.CayleySmoothing.absolute_coefficients"
+      ]
+    },
+    {
+      "module": "CayleyHigher",
+      "path": "CayleyHigher.lean",
+      "sourceSHA256": "2fb1b44513931ef243f97e3ca1b317656b09769719bb2f247564a88bd4a1ee85",
+      "oleanSHA256": "3d491d538c8c7978c2be53d7500526b975ba562896c4f3e9ecb1ca03a3f39401",
+      "compileEvidence": "module compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyHigher.linear_difference",
+        "OMA.CayleyHigher.difference_formula",
+        "OMA.CayleyHigher.halfplane_growth",
+        "OMA.CayleyHigher.decay",
+        "OMA.CayleyHigher.summable_differences",
+        "OMA.CayleyHigher.damp_zero_iff"
+      ]
+    },
+    {
+      "module": "CayleySections",
+      "path": "CayleySections.lean",
+      "sourceSHA256": "03811209b405f6b23112975321c5c20a9112672726ab4d5a603259b51a162552",
+      "oleanSHA256": "bb878bda4d23e5a3855cdb78ce30f78c538ff0756e31d933a336574f77f7c3df",
+      "compileEvidence": "module compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleySections.taylor_sum",
+        "OMA.CayleySections.tail_of_decay",
+        "OMA.CayleySections.disk_lower_iff",
+        "OMA.CayleySections.uniform_tail",
+        "OMA.CayleySections.subdisk_certificate"
+      ]
+    },
+    {
+      "module": "CayleyFiniteGrid",
+      "path": "CayleyFiniteGrid.lean",
+      "sourceSHA256": "8835d202b2b3ae9664c9e0ecb371d52b43b224a84475127812c3245943d2dfbd",
+      "oleanSHA256": "be16dee5ed1581c3ed2fa7263c5a8f49b61a68b075c5b7daec9a08399814c2e8",
+      "compileEvidence": "module compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyFiniteGrid.inward_node",
+        "OMA.CayleyFiniteGrid.polynomial_lipschitz",
+        "OMA.CayleyFiniteGrid.finite_lower_test",
+        "OMA.CayleyFiniteGrid.zero_free_finite_grid"
+      ]
+    },
+    {
+      "module": "CayleyCritical",
+      "path": "CayleyCritical.lean",
+      "sourceSHA256": "de67ebdde72d8a06bb856bca49ce29ed8c60db48f0fa55eb7cac621ded7073ec",
+      "oleanSHA256": "68a73dc98efd4e4d7ed97b7d449d8188907e3cf5343cac8dd577366103fb2bff",
+      "compileEvidence": "module compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyCritical.critical_formula",
+        "OMA.CayleyCritical.image_halfplane",
+        "OMA.CayleyCritical.arithmetic_coeff",
+        "OMA.CayleyCritical.critical_decay",
+        "OMA.CayleyCritical.critical_summable",
+        "OMA.CayleyCritical.critical_tail",
+        "OMA.CayleyCritical.grid_iff_subdisk",
+        "OMA.CayleyCritical.tests_iff_zeros",
+        "OMA.CayleyCritical.tests_iff_erh"
+      ]
+    },
+    {
+      "module": "CayleyCertificates",
+      "path": "CayleyCertificates.lean",
+      "sourceSHA256": "eb6321b5b521625df9b0b3e20c1720184395abd038e975e4687c9ed061826334",
+      "oleanSHA256": "369e841a8280af3d291f98bf2223a3989c56672990f446e7d68164e7308d7cff",
+      "compileEvidence": "module compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyCertificates.slope_le",
+        "OMA.CayleyCertificates.eventually_passes_iff",
+        "OMA.CayleyCertificates.fixed_mesh_iff_erh",
+        "OMA.CayleyCertificates.left_height",
+        "OMA.CayleyCertificates.all_fields_half",
+        "OMA.CayleyCertificates.from_height",
+        "OMA.CayleyCertificates.degree_one",
+        "OMA.CayleyCertificates.gaussian",
+        "OMA.CayleyCertificates.small_cubic",
+        "OMA.CayleyCertificates.fifth"
+      ]
+    },
+    {
+      "module": "CayleyCost",
+      "path": "CayleyCost.lean",
+      "sourceSHA256": "fc880c378c5e42d12757958bdfd0ee09c47eeac6d64ee95a628ed962b568a849",
+      "oleanSHA256": "a6219c839bdafe3c5ced3ede953ec3c6bad14960ca032f66fa77afdc73ca58d6",
+      "compileEvidence": "module compiler record",
+      "auditedDeclarations": [
+        "OMA.CayleyCost.ray_coordinate",
+        "OMA.CayleyCost.scaled_value",
+        "OMA.CayleyCost.scaled_limit",
+        "OMA.CayleyCost.necessary_cost"
+      ]
+    }
+  ]
+}
