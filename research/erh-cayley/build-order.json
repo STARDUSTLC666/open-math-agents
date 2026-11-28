@@ -237,6 +237,122 @@
         "difference_prefix_violation",
         "not_absolutely_summable"
       ]
+    },
+    {
+      "module": "FoldedPhase",
+      "source": "FoldedPhase.lean",
+      "sha256": "5268440fbd72fc5fb9c8977ab49b10c08313c6711eba8f8f8a13b70b1a4c2d3d"
+    },
+    {
+      "module": "VerticalDecay",
+      "source": "VerticalDecay.lean",
+      "sha256": "6aa764a3427ce2dc47a92920cef0b594c24d053e167f32b0aa7333cb3656d469"
+    },
+    {
+      "module": "CompletedNumerator",
+      "source": "CompletedNumerator.lean",
+      "sha256": "a24bc6724cb42c4a0f127b00a15078def265b020086b9d4f9175b9b206496708"
+    },
+    {
+      "module": "StripDecay",
+      "source": "StripDecay.lean",
+      "sha256": "67840b287e7761682a3a5a23525031b9109b549d5477171cd2b9b122942c57a9"
+    },
+    {
+      "module": "MellinAsymptotic",
+      "source": "MellinAsymptotic.lean",
+      "sha256": "9d0b618d8ae9fedb51bce3edec267740d341ca4c496f6f55c6d58ecc3e780f07"
+    },
+    {
+      "module": "ArchGrowth",
+      "source": "ArchGrowth.lean",
+      "sha256": "45454c048ea7fa1b76ef961d0184801112300ee7d9bb94566172479d56ea222c"
+    },
+    {
+      "module": "ZetaGrowth",
+      "source": "ZetaGrowth.lean",
+      "sha256": "b1a0e6882a60bb94b42f9eb165011b02b1bd25fe509ae1710debb6741b2cd27b"
+    },
+    {
+      "module": "CayleySmoothing",
+      "source": "CayleySmoothing.lean",
+      "sha256": "5b608ce72834466b4bbaed6e73867283e6a8f8a4026e223be03d9a16bc17a2c8",
+      "declarations": [
+        "point_right",
+        "local_geometry",
+        "second_bound",
+        "coefficient_decay",
+        "absolute_coefficients"
+      ]
+    },
+    {
+      "module": "CayleyHigher",
+      "source": "CayleyHigher.lean",
+      "sha256": "2fb1b44513931ef243f97e3ca1b317656b09769719bb2f247564a88bd4a1ee85",
+      "declarations": [
+        "linear_difference",
+        "difference_formula",
+        "halfplane_growth",
+        "decay",
+        "summable_differences",
+        "damp_zero_iff"
+      ]
+    },
+    {
+      "module": "CayleySections",
+      "source": "CayleySections.lean",
+      "sha256": "03811209b405f6b23112975321c5c20a9112672726ab4d5a603259b51a162552",
+      "declarations": [
+        "taylor_sum",
+        "tail_of_decay",
+        "disk_lower_iff",
+        "uniform_tail",
+        "subdisk_certificate"
+      ]
+    },
+    {
+      "module": "CayleyFiniteGrid",
+      "source": "CayleyFiniteGrid.lean",
+      "sha256": "8835d202b2b3ae9664c9e0ecb371d52b43b224a84475127812c3245943d2dfbd",
+      "declarations": [
+        "inward_node",
+        "polynomial_lipschitz",
+        "finite_lower_test",
+        "zero_free_finite_grid"
+      ]
+    },
+    {
+      "module": "CayleyCritical",
+      "source": "CayleyCritical.lean",
+      "sha256": "de67ebdde72d8a06bb856bca49ce29ed8c60db48f0fa55eb7cac621ded7073ec",
+      "declarations": [
+        "critical_formula",
+        "image_halfplane",
+        "arithmetic_coeff",
+        "critical_decay",
+        "critical_summable",
+        "critical_tail",
+        "grid_iff_subdisk",
+        "tests_iff_zeros",
+        "tests_iff_erh"
+      ]
+    },
+    {
+      "module": "CayleyCertificates",
+      "source": "CayleyCertificates.lean",
+      "sha256": "eb6321b5b521625df9b0b3e20c1720184395abd038e975e4687c9ed061826334",
+      "declarations": [
+        "slope_le",
+        "eventually_passes_iff",
+        "fixed_mesh_iff_erh",
+        "left_height",
+        "all_fields_half",
+        "from_height",
+        "degree_one",
+        "gaussian",
+        "small_cubic",
+        "fifth"
+      ]
     }
   ]
 }

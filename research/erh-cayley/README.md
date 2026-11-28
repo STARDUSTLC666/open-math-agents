@@ -33,6 +33,24 @@ On the real radius, C(w) tends to 33/16 as w tends to 1. An increasing sequence 
 
 The disk points corresponding to σ+i u_n approach 1, and their C-values tend to (33/16)ζ_K(σ). The pole at σ=1 makes these limit values unbounded as σ ranges over (1,∞). For every field, every neighborhood of 1 within the disk therefore contains points with arbitrarily large |C|. The series of absolute values of the c_n diverges. The weighted prefix criterion fails on some subdisk even after the linear normalization. Growth of the signed reciprocal coefficients at unrestricted radii remains open. [Boundary limits and coefficient obstruction](CayleyBoundaryValues.lean)
 
+## Taylor sections on the critical half-plane
+
+For a number field of degree d, put T(w)=(2+w)/(1−w). This map takes the open unit disk onto Re(s)>1/2. Near the origin take the Taylor coefficients of (1−w)^(d+5) (T(w)−1) ζ_K(T(w)). This uses the absolutely convergent ideal Dirichlet series near s=2. A bound on the second derivative gives |a_(j+2)| ≤ M/((j+1)(j+2)) for every j and a single field-dependent M. The error after the first N+2 terms is at most M/(N+1) throughout the open disk. [Smoothing estimate](CayleySmoothing.lean) · [Uniform truncation](CayleySections.lean) · [Full critical half-plane](CayleyCritical.lean)
+
+For parameter n, form the polynomial P from its first l=(n+1)^2+2 coefficients. On the lattice (j+ik)/D test the nodes inside the chosen closed disk. The strict lower threshold for |P| is 1/(n+1)+2B/D, where B is the finite sum of j|a_j| for 0 ≤ j < l. The margin accounts for the displacement to a lattice node. The field constant M does not appear in the test. The formal reduction uses an arbitrary mesh denominator D. [Inward rounding and bounds](CayleyFiniteGrid.lean) · [Submitted reduction](https://github.com/lefttosolve2/open-math-agents/pull/35967)
+
+One can fix D=l(n+1) in advance. On a closed disk of radius r<1, the regularized function is zero-free exactly when all sufficiently late tests with this fixed mesh pass. On the disks r=m/(m+1) for all fields and all m this condition is equivalent to ERH. The all-fields, all-disks assertion is open. The proofs do not compute an onset n or certified numerical coefficient values. [Fixed-mesh equivalence](CayleyCertificates.lean)
+
+| Field | Closed-disk radius for eventual passing |
+| --- | --- |
+| Every number field | 1/2 |
+| Degree one | 25/26 |
+| Gaussian rationals | 6/7 |
+| Cubic fields of absolute discriminant at most 23 | 3/4 |
+| Fifth cyclotomic field | 2/3 |
+
+These radii follow from nonvanishing on Re(s) ≥ 1 and the respective low-height exclusions. For a strip free of zeros up to absolute height A, any 0 ≤ r < 1 satisfying r²(4+A²) ≤ 1+A² qualifies. [Height transfer and field specializations](CayleyCertificates.lean)
+
 Use PowerShell 7 with Lean 4.33.1 on PATH and the FormalConjectures and Mathlib revisions recorded in `build-order.json`. From this directory run the following command with the path to that FormalConjectures checkout and its existing Mathlib cache.
 
 ```powershell
