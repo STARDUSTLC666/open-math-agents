@@ -189,6 +189,16 @@
         "weighted_inverse_bound",
         "bound_of_prefix"
       ]
+    },
+    {
+      "module": "CayleyObstruction",
+      "source": "CayleyObstruction.lean",
+      "sha256": "a7f7784884d639f9ac20fc0eddfc5707e0e9018ee6c7fa9523445d60eb27433d",
+      "declarations": [
+        "forward_sum",
+        "value_bound",
+        "prefix_violation"
+      ]
     }
   ]
 }
