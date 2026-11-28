@@ -199,6 +199,44 @@
         "value_bound",
         "prefix_violation"
       ]
+    },
+    {
+      "module": "CayleyReturn",
+      "source": "CayleyReturn.lean",
+      "sha256": "5c128385b702d8359aa6ab88d01f3f62504a2b5e370c06376d01305aa5c4fdbe",
+      "declarations": [
+        "common_heights",
+        "real_limit",
+        "large_real"
+      ]
+    },
+    {
+      "module": "CayleyDifference",
+      "source": "CayleyDifference.lean",
+      "sha256": "3dc5adbcee31357bea9988b9959330fb9a7e367510db6a0ed048a36b773c74b5",
+      "declarations": [
+        "forward_coeff",
+        "first_differences",
+        "inverse_differences",
+        "inverse_partial_sums",
+        "bound_iff",
+        "normalized_sum",
+        "bound_of_difference_prefix"
+      ]
+    },
+    {
+      "module": "CayleyBoundaryValues",
+      "source": "CayleyBoundaryValues.lean",
+      "sha256": "9ef33344da48a25d77a0d91c594f2d67bdbf496589d55216f458e8abd78513d1",
+      "declarations": [
+        "normalized_at",
+        "radial_limit",
+        "vertical_limits",
+        "unbounded_at_one",
+        "absolute_mass",
+        "difference_prefix_violation",
+        "not_absolutely_summable"
+      ]
     }
   ]
 }
