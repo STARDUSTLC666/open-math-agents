@@ -1,0 +1,181 @@
+{
+  "lean": "Lean (version 4.33.1, x86_64-w64-windows-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "formalConjectures": "9097e2f90e66d2f6244209cb1c07f7120d17ec53",
+  "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "modules": [
+    {
+      "module": "OMAReductions.R_ERH_extended_riemann_hypothesis_R3",
+      "source": "OMAReductions/R_ERH_extended_riemann_hypothesis_R3.lean",
+      "sha256": "0682339db692de5f20cbc6e810adb86c38b67a00f8da7f858d95eb445d9ba278"
+    },
+    {
+      "module": "OMAReductions.R_ERH_extended_riemann_hypothesis_R3_H2_R1",
+      "source": "OMAReductions/R_ERH_extended_riemann_hypothesis_R3_H2_R1.lean",
+      "sha256": "d98bf330b9d39b975da09b1d5b437320b1ab6647b888f327a0704603d2e16cae"
+    },
+    {
+      "module": "OMAReductions.R_ERH_extended_riemann_hypothesis_R3_H2_R1_H2_R1",
+      "source": "OMAReductions/R_ERH_extended_riemann_hypothesis_R3_H2_R1_H2_R1.lean",
+      "sha256": "433adfb343fffced837c0ca0beb3d8c84a2a06d6079f29a3e25a8d07942a9cb7"
+    },
+    {
+      "module": "CayleyBounds",
+      "source": "CayleyBounds.lean",
+      "sha256": "d21a99a6b63f666df44696a63b176be7efe4fa595775459eeb85c67dedf22b1c",
+      "declarations": [
+        "point_positive",
+        "left_height",
+        "initial_radius",
+        "bound_of_height"
+      ]
+    },
+    {
+      "module": "ThetaMoment",
+      "source": "ThetaMoment.lean",
+      "sha256": "e54c2c2c906a9e991e4c654c2cac4dfd058ec126eda4217edd4a3b57b3442a41"
+    },
+    {
+      "module": "ReciprocalRadius",
+      "source": "ReciprocalRadius.lean",
+      "sha256": "ab50954c74cf5ce498515a154de4b11baceb9e7573129ee8ac3cd98d29c564e0"
+    },
+    {
+      "module": "DedekindThetaAudit",
+      "source": "DedekindThetaAudit.lean",
+      "sha256": "2f1813a2d723279dfc8493239893aac2ff49b5eeb21ed43c225433025039ef31"
+    },
+    {
+      "module": "RationalRadius",
+      "source": "RationalRadius.lean",
+      "sha256": "ab18b19deaaeefc40ee140a90db6cf3447d8f570a67ad8deedddb28bf8c84a7b"
+    },
+    {
+      "module": "LowHeight",
+      "source": "LowHeight.lean",
+      "sha256": "5907447d60c7feb08317a2f3b971d8afacfbf1e88028ee4b2915298da8cc5162"
+    },
+    {
+      "module": "EulerBoundary",
+      "source": "EulerBoundary.lean",
+      "sha256": "3a935f9dd88798bbb27fe75f4a597af62e86ef9a2dd2e84e7bbf62021bf74ee3"
+    },
+    {
+      "module": "ThetaContinuation",
+      "source": "ThetaContinuation.lean",
+      "sha256": "c08d9181b7418384cff32901d62348fcabc1f20ddb8dc510fdb7f779f94b7932"
+    },
+    {
+      "module": "AllFieldRadius",
+      "source": "AllFieldRadius.lean",
+      "sha256": "034323faeae08d62fc8c6f952d9eaeae0c8c27e28a62cc9c54666186fd62eca7"
+    },
+    {
+      "module": "ExactRadius",
+      "source": "ExactRadius.lean",
+      "sha256": "bce785daf1af936a89b610e88c327c53088507cf94660e2d67d9e0be2989f93e"
+    },
+    {
+      "module": "QuadraticMoment",
+      "source": "QuadraticMoment.lean",
+      "sha256": "38c0ca5f0309064f13f568c91dd4041258453d1a647b8bdd28f9e6afd831927c"
+    },
+    {
+      "module": "HeatDecay",
+      "source": "HeatDecay.lean",
+      "sha256": "1fffe56f6964c83692f22a604fe9a7dc8e9b103bf7b15aeb342e8c560842adb3"
+    },
+    {
+      "module": "SmallEndpoint",
+      "source": "SmallEndpoint.lean",
+      "sha256": "7b5d5f52abdd2b5fd58e85fdceca4035aff4b78b5595dc14ab7c56c718eca170"
+    },
+    {
+      "module": "DiskGeometry",
+      "source": "DiskGeometry.lean",
+      "sha256": "fcea5415f5757099e9ad24c38b0b82d8a52bf402111c01ffada242a07a700700"
+    },
+    {
+      "module": "SelfDualHeat",
+      "source": "SelfDualHeat.lean",
+      "sha256": "56649d036949e99b27a170a050c600df2ca846baf303204c3af21b12d973637e"
+    },
+    {
+      "module": "StripHeat",
+      "source": "StripHeat.lean",
+      "sha256": "aec433c05ba6627638d6f2eb20006f88eeb4a2dbd176957cf0d1224fa8051ab4"
+    },
+    {
+      "module": "DiscriminantRanges",
+      "source": "DiscriminantRanges.lean",
+      "sha256": "874100a8f8f9e683b44270f27a364ba5484d09120ffdf7f5e9d094b3ea4d8e10"
+    },
+    {
+      "module": "CyclotomicDisks",
+      "source": "CyclotomicDisks.lean",
+      "sha256": "5fb32af86849bcac35697fca7320e04d17db7c3a4ae44c459966c82cb2f4cd6a"
+    },
+    {
+      "module": "CentralRadius",
+      "source": "CentralRadius.lean",
+      "sha256": "a0016a81912da507262ccf81f57c917da13f387251ccab29f3de5369636fa267"
+    },
+    {
+      "module": "SharpStrip",
+      "source": "SharpStrip.lean",
+      "sha256": "b7e3dd1e0ee5f0b9efe47ddba8a0f87dfcc1898ebf9f33fbdef7a63799ac1c35"
+    },
+    {
+      "module": "RadialProfile",
+      "source": "RadialProfile.lean",
+      "sha256": "99dd2f712462427228c7526ea44a8b1714ba6c4cb760ffc7704e2e8c7afbfbdc"
+    },
+    {
+      "module": "GeneralHeat",
+      "source": "GeneralHeat.lean",
+      "sha256": "886877095800b7b8b365b732e5a4b2812eb6ccf1a6df79fb51546ba929dd0447"
+    },
+    {
+      "module": "GeneralSlope",
+      "source": "GeneralSlope.lean",
+      "sha256": "ffbbbd2c4b8475e4677d63088dd31a5e4f080761a44787a0ed7f7e380574e299"
+    },
+    {
+      "module": "GeneralStrip",
+      "source": "GeneralStrip.lean",
+      "sha256": "be0443c4c2b15979e45c8b2c79be4e5c1a984cd0a03e5d101a5b743a79be6450"
+    },
+    {
+      "module": "QuarticDisk",
+      "source": "QuarticDisk.lean",
+      "sha256": "247645aaeee55caf1002875b3ad1b56ccbb7d2e9050971bc86a0ce1c22dceeae"
+    },
+    {
+      "module": "ZeroAtOrigin",
+      "source": "ZeroAtOrigin.lean",
+      "sha256": "1681cf63507aedd981b8c573d7a15d7f711c21c0e5f3dfbd711ce47b88b4e479"
+    },
+    {
+      "module": "RealFifth",
+      "source": "RealFifth.lean",
+      "sha256": "0275e5d2e7a7b11650221c902a0334280e9098f16f46160feda802b4f5e41a1b"
+    },
+    {
+      "module": "CubicDisk",
+      "source": "CubicDisk.lean",
+      "sha256": "42de67092d02539d177da2154b077602872a9da8d468742e3a0f015fc848a2c1"
+    },
+    {
+      "module": "CayleyFields",
+      "source": "CayleyFields.lean",
+      "sha256": "626533aa7f6efe88ae812be24066dfe605c6be18461d91287e1ad85107c831ab",
+      "declarations": [
+        "boundary",
+        "all_fields",
+        "degree_one",
+        "gaussian",
+        "small_cubic",
+        "fifth"
+      ]
+    }
+  ]
+}
