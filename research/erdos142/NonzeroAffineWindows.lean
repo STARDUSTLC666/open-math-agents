@@ -182,26 +182,34 @@ private lemma split_slopes {p : ℕ} [NeZero p] (f : ZMod p × ZMod p → ℕ) :
   rw [Fintype.sum_prod_type_right]
   exact (sum_erase_add _ _ (mem_univ (0 : ZMod p))).symm
 
-/-- The nonzero-slope affine-window inequality. Only genuine ordered APs occur on the right. -/
-theorem nonzero_window_bound {p k M : ℕ} [Fact p.Prime] (hk : 1 < k) (hM : M < p)
+/-- Occupied positions in the short interval for an affine map. -/
+def occupied {p : ℕ} (M : ℕ) (A : Finset (ZMod p)) (u : ZMod p × ZMod p) : Finset ℕ :=
+  (Icc 1 M).filter fun j => affine u j ∈ A
+
+private def localPatterns {p : ℕ} [NeZero p] (k M : ℕ) (A : Finset (ZMod p))
+    (u : ZMod p × ZMod p) : ℕ :=
+  ((patterns k M).filter fun v => place v u ∈ progressions k A).card
+
+def sumNonzeroSlopes {p : ℕ} [NeZero p] (f : ZMod p × ZMod p → ℕ) : ℕ :=
+  ∑ d ∈ (univ : Finset (ZMod p)).erase 0, ∑ a, f (a,d)
+
+private lemma nonzero_totals {p k M : ℕ} [Fact p.Prime] (hk : 1 < k) (hM : M < p)
     (A : Finset (ZMod p)) :
-    (p-1)*(M*A.card) ≤ (p-1)*(p*r k M) + (patterns k M).card*(genuine k A).card := by
+    sumNonzeroSlopes (fun u => (occupied M A u).card) = (p-1)*(M*A.card) ∧
+    sumNonzeroSlopes (localPatterns k M A) = (patterns k M).card*(genuine k A).card := by
   classical
-  let W (u : ZMod p × ZMod p) := ((Icc 1 M).filter fun j => affine u j ∈ A).card
-  let D (u : ZMod p × ZMod p) :=
-    ((patterns k M).filter fun v => place v u ∈ progressions k A).card
-  let sumNZ (f : ZMod p × ZMod p → ℕ) :=
-    ∑ d ∈ (univ : Finset (ZMod p)).erase 0, ∑ a, f (a,d)
+  let W (u : ZMod p × ZMod p) := (occupied M A u).card
+  let D := localPatterns k M A
   have w0 : (∑ a, W (a,0)) = M*A.card := by
     have each (a : ZMod p) : W (a,0) = if a ∈ A then M else 0 := by
-      by_cases ha : a ∈ A <;> simp [W,affine,ha]
+      by_cases ha : a ∈ A <;> simp [W,occupied,affine,ha]
     simp [each,Nat.mul_comm]
   have d0 : (∑ a, D (a,0)) = (patterns k M).card*A.card := by
     have each (a : ZMod p) : D (a,0) = if a ∈ A then (patterns k M).card else 0 := by
-      by_cases ha : a ∈ A <;> simp [D,place,affine,constant_mem (by omega : 0 < k) A,ha]
+      by_cases ha : a ∈ A <;> simp [D,localPatterns,place,affine,constant_mem (by omega : 0 < k) A,ha]
     simp [each,Nat.mul_comm]
   have hp : p-1+1 = p := Nat.sub_add_cancel (Fact.out : p.Prime).one_le
-  have wa : sumNZ W + M*A.card = M*p*A.card :=
+  have wa : sumNonzeroSlopes W + M*A.card = M*p*A.card :=
     w0 ▸ ((split_slopes W).symm.trans (total_occupancy M A))
   have expand : M*p*A.card = (p-1)*(M*A.card) + M*A.card := by
     calc
@@ -209,21 +217,30 @@ theorem nonzero_window_bound {p k M : ℕ} [Fact p.Prime] (hk : 1 < k) (hM : M <
       _ = _ := by ring
   rw [expand] at wa
   have wn := Nat.add_right_cancel wa
-  have da : sumNZ D + (patterns k M).card*A.card =
+  have da : sumNonzeroSlopes D + (patterns k M).card*A.card =
       (patterns k M).card*(progressions k A).card :=
     d0 ▸ ((split_slopes D).symm.trans (total_patterns hM A))
   rw [progressions_card (by omega : 0 < k) A,Nat.mul_add] at da
-  have dn := Nat.add_right_cancel da
-  have summed : sumNZ W ≤
+  exact ⟨wn,Nat.add_right_cancel da⟩
+
+/-- The nonzero-slope affine-window inequality. Only genuine ordered APs occur on the right. -/
+theorem nonzero_window_bound {p k M : ℕ} [Fact p.Prime] (hk : 1 < k) (hM : M < p)
+    (A : Finset (ZMod p)) :
+    (p-1)*(M*A.card) ≤ (p-1)*(p*r k M) + (patterns k M).card*(genuine k A).card := by
+  classical
+  let W (u : ZMod p × ZMod p) := (occupied M A u).card
+  let D := localPatterns k M A
+  obtain ⟨wn,dn⟩ := nonzero_totals hk hM A
+  have summed : sumNonzeroSlopes W ≤
       ∑ d ∈ (univ : Finset (ZMod p)).erase 0, ∑ a : ZMod p, (r k M + D (a,d)) :=
     sum_le_sum fun d _ => sum_le_sum fun a _ => window_bound hk A (a,d)
   have count : ((univ : Finset (ZMod p)).erase 0).card = p-1 := by
     simp [ZMod.card]
   calc
-    _ = sumNZ W := wn.symm
+    _ = sumNonzeroSlopes W := wn.symm
     _ ≤ _ := summed
-    _ = (p-1)*(p*r k M) + sumNZ D := by
-      simp [sum_add_distrib,sumNZ,count,ZMod.card]
+    _ = (p-1)*(p*r k M) + sumNonzeroSlopes D := by
+      simp [sum_add_distrib,sumNonzeroSlopes,count,ZMod.card]
     _ = _ := by rw [dn]
 
 /-- A strict criterion for the ordered-count threshold in the event's cyclic transfer. -/
@@ -289,5 +306,205 @@ theorem sharp_mod_five :
   dsimp only
   rw [r_four_four]
   decide
+
+private def samplePair {p : ℕ} (v : ℕ × ℕ) (u : ZMod p × ZMod p) : ZMod p × ZMod p :=
+  (affine u v.1, affine u v.2)
+
+-- Images of two distinct positions determine both the origin and the slope.
+private lemma samplePair_bijective {p M : ℕ} [Fact p.Prime] (hM : M < p)
+    {v : ℕ × ℕ} (hv : v ∈ (Icc 1 M).offDiag) : Function.Bijective (samplePair (p := p) v) := by
+  obtain ⟨hi,hj,distinct⟩ := mem_offDiag.mp hv
+  have diff : (v.2 : ZMod p) - v.1 ≠ 0 := by
+    apply sub_ne_zero.mpr
+    intro eq
+    have vals := congrArg ZMod.val eq
+    rw [ZMod.val_natCast_of_lt (lt_of_le_of_lt (mem_Icc.mp hj).2 hM),
+        ZMod.val_natCast_of_lt (lt_of_le_of_lt (mem_Icc.mp hi).2 hM)] at vals
+    exact distinct vals.symm
+  constructor
+  · rintro ⟨a,d⟩ ⟨b,e⟩ he
+    have h1 : a + (v.1 : ZMod p)*d = b + (v.1 : ZMod p)*e := congrArg Prod.fst he
+    have h2 : a + (v.2 : ZMod p)*d = b + (v.2 : ZMod p)*e := congrArg Prod.snd he
+    have sides : ((v.2 : ZMod p)-v.1)*d = ((v.2 : ZMod p)-v.1)*e := by
+      linear_combination h2 - h1
+    obtain rfl := mul_left_cancel₀ diff sides
+    exact Prod.ext (add_right_cancel h1) rfl
+  · rintro ⟨x,y⟩
+    let d := (y-x) / ((v.2 : ZMod p)-v.1)
+    have slope : ((v.2 : ZMod p)-v.1)*d = y-x := by
+      simp [d, diff, mul_div_cancel₀]
+    refine ⟨(x-(v.1 : ZMod p)*d,d),Prod.ext ?_ ?_⟩
+    · simp [samplePair,affine]
+    · change x - (v.1 : ZMod p)*d + (v.2 : ZMod p)*d = y
+      linear_combination slope
+
+private lemma offDiag_size {α : Type*} (s : Finset α) :
+    s.offDiag.card = s.card*(s.card-1) := by rw [offDiag_card,Nat.mul_sub,Nat.mul_one]
+
+private lemma ordered_pairs_plus_diag (n : ℕ) : n*(n-1)+n = n*n := by
+  cases n with
+  | zero => rfl
+  | succ n => simp only [Nat.add_sub_cancel]; ring
+
+/-- Each ordered pair of distinct short positions has A.card squared images over all slopes. -/
+private lemma all_window_pairs {p M : ℕ} [Fact p.Prime] (hM : M < p) (A : Finset (ZMod p)) :
+    (∑ u : ZMod p × ZMod p, (occupied M A u).offDiag.card) =
+      M*(M-1)*(A.card*A.card) := by
+  classical
+  have positions (u : ZMod p × ZMod p) : (occupied M A u).offDiag =
+      (Icc 1 M).offDiag.filter fun v => samplePair v u ∈ A ×ˢ A := by
+    ext v
+    simp only [occupied,mem_offDiag,mem_filter,mem_product,samplePair]
+    tauto
+  simp_rw [positions,card_filter]
+  rw [sum_comm]
+  have fixed (v : ℕ × ℕ) (hv : v ∈ (Icc 1 M).offDiag) :
+      (∑ u : ZMod p × ZMod p, if samplePair v u ∈ A ×ˢ A then 1 else 0) = A.card*A.card := by
+    have size (s : Finset (ZMod p × ZMod p)) :
+        (∑ u : ZMod p × ZMod p, if u ∈ s then 1 else 0) = s.card := by simp
+    calc
+      _ = ∑ u : ZMod p × ZMod p, if u ∈ A ×ˢ A then 1 else 0 :=
+        (samplePair_bijective hM hv).sum_comp (fun u => if u ∈ A ×ˢ A then 1 else 0)
+      _ = _ := (size _).trans (card_product _ _)
+  rw [sum_congr rfl fixed]
+  simp [Nat.mul_sub]
+
+/-- Exact second factorial moment of the occupancy over nonzero slopes. -/
+theorem factorial_window_moment {p M : ℕ} [Fact p.Prime] (hM : M < p) (A : Finset (ZMod p)) :
+    sumNonzeroSlopes (fun u => (occupied M A u).card * ((occupied M A u).card-1)) =
+      M*(M-1)*(A.card*(A.card-1)) := by
+  classical
+  let f (u : ZMod p × ZMod p) := (occupied M A u).card * ((occupied M A u).card-1)
+  have z : (∑ a, f (a,0)) = M*(M-1)*A.card := by
+    have each (a : ZMod p) : f (a,0) = if a ∈ A then M*(M-1) else 0 := by
+      by_cases ha : a ∈ A <;> simp [f,occupied,affine,ha]
+    simp [each,Nat.mul_comm]
+  have total : (∑ u, f u) = M*(M-1)*(A.card*A.card) := by
+    simpa only [f,offDiag_size] using all_window_pairs hM A
+  have split : sumNonzeroSlopes f + M*(M-1)*A.card = M*(M-1)*(A.card*A.card) :=
+    z ▸ ((split_slopes f).symm.trans total)
+  have back : M*(M-1)*(A.card*A.card) =
+      M*(M-1)*(A.card*(A.card-1)) + M*(M-1)*A.card := by
+    rw [← Nat.mul_add,ordered_pairs_plus_diag]
+  exact Nat.add_right_cancel (split.trans back)
+
+/-- Weight the window deletion bound by occupancy, using its exact first two moments. -/
+theorem pair_weighted_window_bound {p k M : ℕ} [Fact p.Prime] (hk : 1 < k)
+    (pos : 0 < M) (hM : M < p) (A : Finset (ZMod p)) :
+    (M-1)*(A.card*(A.card-1)) + (p-1)*A.card ≤
+      r k M*(p-1)*A.card + (patterns k M).card*(genuine k A).card := by
+  classical
+  let W (u : ZMod p × ZMod p) := (occupied M A u).card
+  let D := localPatterns k M A
+  have pointwise (u : ZMod p × ZMod p) :
+      W u*(W u-1) + W u ≤ r k M*W u + M*D u := by
+    have wm : W u ≤ M := by
+      simpa [W,occupied] using (card_filter_le (Icc 1 M) (fun j => affine u j ∈ A))
+    rw [ordered_pairs_plus_diag]
+    calc
+      W u*W u ≤ (r k M+D u)*W u := Nat.mul_le_mul_right _ (window_bound hk A u)
+      _ = r k M*W u + W u*D u := by ring
+      _ ≤ _ := Nat.add_le_add_left (Nat.mul_le_mul_right _ wm) _
+  have h : sumNonzeroSlopes (fun u => W u*(W u-1) + W u) ≤
+      sumNonzeroSlopes (fun u => r k M*W u + M*D u) :=
+    sum_le_sum fun d _ => sum_le_sum fun a _ => pointwise (a,d)
+  have add (f g : ZMod p × ZMod p → ℕ) :
+      sumNonzeroSlopes (fun u => f u + g u) = sumNonzeroSlopes f + sumNonzeroSlopes g := by
+    simp only [sumNonzeroSlopes,sum_add_distrib]
+  have scale (c : ℕ) (f : ZMod p × ZMod p → ℕ) :
+      sumNonzeroSlopes (fun u => c*f u) = c*sumNonzeroSlopes f := by
+    simp only [sumNonzeroSlopes,mul_sum]
+  obtain ⟨first,pats⟩ := nonzero_totals hk hM A
+  rw [add (fun u => W u*(W u-1)) W,add (fun u => r k M*W u) (fun u => M*D u),
+    scale (r k M) W,scale M D] at h
+  have second : sumNonzeroSlopes (fun u => W u*(W u-1)) = _ := factorial_window_moment hM A
+  rw [second,show sumNonzeroSlopes W = _ from first,show sumNonzeroSlopes D = _ from pats] at h
+  apply Nat.le_of_mul_le_mul_left _ pos
+  simpa only [Nat.mul_add,Nat.mul_assoc,Nat.mul_left_comm,Nat.mul_comm] using h
+
+/-- In modulus eleven the pair bound forces at least eight genuine APs even at negative
+first-moment surplus: 4 times 8 = 32, while 11 times r_4(4) = 33. -/
+theorem eight_in_eleven (A : Finset (ZMod 11)) (size : A.card = 8) : 8 ≤ (genuine 4 A).card := by
+  let _ : Fact (Nat.Prime 11) := ⟨by decide⟩
+  have h := pair_weighted_window_bound (k := 4) (M := 4) (by decide) (by decide) (by decide) A
+  rw [size,r_four_four,show (patterns 4 4).card = 1 by decide] at h
+  omega
+
+private lemma genuine_mem {p : ℕ} [NeZero p] (k : ℕ) (A : Finset (ZMod p)) (a d : ZMod p) :
+    (a,d) ∈ genuine k A ↔ (∀ i : Fin k, a + (i.val : ZMod p)*d ∈ A) ∧ d ≠ 0 := by
+  simp [genuine,progressions]
+
+/-- A nonconstant affine change of coordinates preserves the number of genuine ordered APs. -/
+theorem genuine_affine_preimage {p : ℕ} [Fact p.Prime] (k : ℕ) (x c : ZMod p) (hc : c ≠ 0)
+    {S T : Finset (ZMod p)} (pull : ∀ v, x+c*v ∈ S ↔ v ∈ T) :
+    (genuine k T).card = (genuine k S).card := by
+  classical
+  let f (u : ZMod p × ZMod p) := (x+c*u.1,c*u.2)
+  have bij : Function.Bijective f := by
+    constructor
+    · rintro ⟨a,d⟩ ⟨b,e⟩ eq
+      have left : x+c*a = x+c*b := congrArg Prod.fst eq
+      have right : c*d = c*e := congrArg Prod.snd eq
+      exact Prod.ext (mul_left_cancel₀ hc (add_left_cancel left)) (mul_left_cancel₀ hc right)
+    · rintro ⟨a,d⟩
+      exact ⟨((a-x)/c,d/c),by ext <;> simp [f,hc,mul_div_cancel₀]⟩
+  have same (u : ZMod p × ZMod p) : f u ∈ genuine k S ↔ u ∈ genuine k T := by
+    rcases u with ⟨a,d⟩
+    change (x+c*a,c*d) ∈ genuine k S ↔ (a,d) ∈ genuine k T
+    rw [genuine_mem,genuine_mem]
+    have term (i : Fin k) : x+c*a+(i.val : ZMod p)*(c*d) ∈ S ↔ a+(i.val : ZMod p)*d ∈ T := by
+      rw [show x+c*a+(i.val : ZMod p)*(c*d) = x+c*(a+(i.val : ZMod p)*d) by ring]
+      exact pull _
+    constructor
+    · rintro ⟨terms,nonzero⟩
+      exact ⟨fun i => (term i).mp (terms i),fun eq => nonzero (by simp [eq])⟩
+    · rintro ⟨terms,nonzero⟩
+      exact ⟨fun i => (term i).mpr (terms i),mul_ne_zero hc nonzero⟩
+  calc
+    _ = ∑ u : ZMod p × ZMod p, if f u ∈ genuine k S then 1 else 0 := by simp_rw [same]; simp
+    _ = ∑ u : ZMod p × ZMod p, if u ∈ genuine k S then 1 else 0 :=
+      bij.sum_comp (fun u => if u ∈ genuine k S then 1 else 0)
+    _ = _ := by simp
+
+private def triple (t : ZMod 11) : Finset (ZMod 11) := {0,1,t}
+
+set_option maxRecDepth 10000 in
+private theorem normalized_eleven : ∀ t : ZMod 11, t ≠ 0 → t ≠ 1 →
+    (genuine 4 (triple t)ᶜ).card = if 0 < (genuine 3 (triple t)).card then 22 else 24 := by
+  decide
+
+/-- For every eight-element set modulo 11, the exact four-AP count is determined by whether
+the three omitted elements form an arithmetic progression. -/
+theorem eight_in_eleven_exact (A : Finset (ZMod 11)) (size : A.card = 8) :
+    (genuine 4 A).card = if 0 < (genuine 3 Aᶜ).card then 22 else 24 := by
+  classical
+  let _ : Fact (Nat.Prime 11) := ⟨by decide⟩
+  have holes : Aᶜ.card = 3 := by simp [card_compl,ZMod.card,size]
+  obtain ⟨x,y,z,hxy,hxz,hyz,hs⟩ := card_eq_three.mp holes
+  let c := y-x
+  have hc : c ≠ 0 := sub_ne_zero.mpr hxy.symm
+  let t := (z-x)/c
+  let f (v : ZMod 11) := x+c*v
+  have inj : Function.Injective f := by intro i j eq; exact mul_left_cancel₀ hc (add_left_cancel eq)
+  have f0 : f 0 = x := by simp [f]
+  have f1 : f 1 = y := by simp [f,c]
+  have ft : f t = z := by simp [f,t,hc,mul_div_cancel₀]
+  have pre {i j a : ZMod 11} (eq : f j = a) : f i = a ↔ i = j := eq ▸ inj.eq_iff
+  have pull (v : ZMod 11) : x+c*v ∈ Aᶜ ↔ v ∈ triple t := by
+    rw [hs]
+    change f v ∈ ({x,y,z} : Finset (ZMod 11)) ↔ v ∈ ({0,1,t} : Finset (ZMod 11))
+    simp only [mem_insert,mem_singleton]
+    exact or_congr (pre f0) (or_congr (pre f1) (pre ft))
+  have rest (v : ZMod 11) : x+c*v ∈ A ↔ v ∈ (triple t)ᶜ := by
+    simpa using not_congr (pull v)
+  have not0 : t ≠ 0 := by intro e; exact hxz (f0.symm.trans ((congrArg f e).symm.trans ft))
+  have not1 : t ≠ 1 := by intro e; exact hyz (f1.symm.trans ((congrArg f e).symm.trans ft))
+  rw [← genuine_affine_preimage 4 x c hc rest,← genuine_affine_preimage 3 x c hc pull]
+  exact normalized_eleven t not0 not1
+
+set_option maxRecDepth 10000 in
+theorem eleven_examples :
+    (triple 2)ᶜ.card = 8 ∧ (genuine 4 (triple 2)ᶜ).card = 22 ∧
+    (triple 3)ᶜ.card = 8 ∧ (genuine 4 (triple 3)ᶜ).card = 24 := by decide
 
 end Erdos142.FiniteWindows
