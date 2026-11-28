@@ -353,6 +353,17 @@
         "small_cubic",
         "fifth"
       ]
+    },
+    {
+      "module": "CayleyCost",
+      "source": "CayleyCost.lean",
+      "sha256": "fc880c378c5e42d12757958bdfd0ee09c47eeac6d64ee95a628ed962b568a849",
+      "declarations": [
+        "ray_coordinate",
+        "scaled_value",
+        "scaled_limit",
+        "necessary_cost"
+      ]
     }
   ]
 }

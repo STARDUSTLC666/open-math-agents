@@ -1,0 +1,74 @@
+{
+  "field": "Q",
+  "radius": "1/2",
+  "n": 23,
+  "polynomial_terms": 578,
+  "D": 13872,
+  "slope_enclosure": "[116.4190195965712187304 +/- 2.02e-20]",
+  "slope_upper": 120,
+  "grid_threshold_upper": "409/6936",
+  "reference_section_modulus_lower": "65/1024",
+  "boxes_certified": 906,
+  "boxes_outside_disk": 88,
+  "largest_box_center_denominator": 1024,
+  "prefix_used_in_boxes": 20,
+  "remaining_polynomial_terms_uniform_bound": "[3.686471880830532e-10 +/- 1.37e-26]",
+  "coefficient_precision_bits": 1536,
+  "box_precision_bits": 112,
+  "failed_for_every_D": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "additional_failures_at_fixed_D": [
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "witnesses": [
+    {
+      "n": 15,
+      "terms": 258,
+      "D": 262144,
+      "fixed_mesh": false,
+      "threshold_upper": "1039/16384"
+    },
+    {
+      "n": 22,
+      "terms": 531,
+      "D": 12213,
+      "fixed_mesh": true,
+      "threshold_upper": "257/4071"
+    },
+    {
+      "n": 23,
+      "terms": 578,
+      "D": 13872,
+      "fixed_mesh": true,
+      "threshold_upper": "409/6936"
+    }
+  ],
+  "minimum_n_arbitrary_D": 15,
+  "minimum_n_fixed_mesh": 22,
+  "uniform_modulus_lower_for_all_lengths_at_least_258": "4159/65536",
+  "all_n_at_least_15_pass_with_D": "1 + ceil(4096 * section_slope)",
+  "python_flint": "0.9.0",
+  "flint": "3.6.0",
+  "verified": true
+}

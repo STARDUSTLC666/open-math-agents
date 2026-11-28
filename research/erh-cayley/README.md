@@ -51,6 +51,10 @@ One can fix D=l(n+1) in advance. On a closed disk of radius r<1, the regularized
 
 These radii follow from nonvanishing on Re(s) ≥ 1 and the respective low-height exclusions. For a strip free of zeros up to absolute height A, any 0 ≤ r < 1 satisfying r²(4+A²) ≤ 1+A² qualifies. [Height transfer and field specializations](CayleyCertificates.lean)
 
+The positive real endpoint of disk m is sent to s=3m+2. At this endpoint (m+1)^(d+4) times the modulus of the damped function tends to 3. For every C>3 there are field-dependent cutoffs such that every passing grid beyond both cutoffs must satisfy (m+1)^(d+4)<C(n+1), for every choice of D. [Lean theorem](CayleyCost.lean)
+
+For the rational field on the disk of radius 1/2, a separate rigorous interval computation finds the first passing n. It is 15 with an arbitrary denominator (258 polynomial terms, D=262144) and 22 with the fixed rule (531 terms, D=12213). [Derivation and reproducible interval certificate](rational_grid.md)
+
 Use PowerShell 7 with Lean 4.33.1 on PATH and the FormalConjectures and Mathlib revisions recorded in `build-order.json`. From this directory run the following command with the path to that FormalConjectures checkout and its existing Mathlib cache.
 
 ```powershell
