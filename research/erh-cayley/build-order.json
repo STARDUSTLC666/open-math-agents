@@ -176,6 +176,19 @@
         "small_cubic",
         "fifth"
       ]
+    },
+    {
+      "module": "CayleyRecurrence",
+      "source": "CayleyRecurrence.lean",
+      "sha256": "09ff166b5367e65908a3a3707c7b976fe4064e2750f38b07b9403c88f992a833",
+      "declarations": [
+        "base_derivatives",
+        "product_coeff",
+        "reciprocal_system",
+        "arithmetic_recurrence",
+        "weighted_inverse_bound",
+        "bound_of_prefix"
+      ]
     }
   ]
 }
